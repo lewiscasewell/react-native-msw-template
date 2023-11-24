@@ -11,6 +11,10 @@ const createQueryClient = () => {
         // set cache time to 0 to allow jest to exit cleanly after tests finish
         gcTime: 0,
       },
+      mutations: {
+        retry: false,
+        gcTime: 0,
+      },
     },
   });
 };
