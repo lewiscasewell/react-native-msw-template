@@ -1,4 +1,4 @@
-# React-native with MSW, Jest, and React Testing Library
+# React-native with MSW, Jest, React Query and React Testing Library
 
 ## Description
 
