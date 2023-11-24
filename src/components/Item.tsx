@@ -1,6 +1,7 @@
 import React from 'react';
-import {Text, View} from 'react-native';
-import {Currency} from '../hooks/types';
+import {View} from 'react-native';
+import Text from 'components/Text';
+import {Currency} from 'hooks/useCurrencyQuery';
 
 const Item: React.FC<{item: Currency}> = ({item}) => {
   return (

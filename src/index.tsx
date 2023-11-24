@@ -1,6 +1,7 @@
 import React from 'react';
-import {SafeAreaView, StatusBar, StyleSheet, Text} from 'react-native';
-import List from './components/List';
+import {SafeAreaView, StatusBar, StyleSheet} from 'react-native';
+import Text from 'components/Text';
+import List from 'components/List';
 
 function Index(): JSX.Element {
   return (

@@ -1,7 +1,7 @@
 import {UseQueryResult} from '@tanstack/react-query';
-import {renderHookWithReactQuery} from '../src/tests/render';
-import {Currency} from '../src/hooks/useCurrencyQuery';
-import useCurrenciesQuery from '../src/hooks/useCurrencyQuery';
+import {renderHookWithReactQuery} from 'src/testUtils/render';
+import {Currency} from 'hooks/useCurrencyQuery';
+import useCurrenciesQuery from 'hooks/useCurrencyQuery';
 
 type UseCurrencyQuery = UseQueryResult<Currency[], Error>;
 

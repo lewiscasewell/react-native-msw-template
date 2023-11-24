@@ -1,7 +1,8 @@
 import React from 'react';
-import {FlatList, StyleSheet, Text, View} from 'react-native';
-import useCurrencyQuery from '../hooks/useCurrencyQuery';
-import Item from './Item';
+import {FlatList, StyleSheet, View} from 'react-native';
+import useCurrencyQuery from 'hooks/useCurrencyQuery';
+import Item from 'components/Item';
+import Text from 'components/Text';
 
 export const errorMessage = 'Something went wrong!';
 

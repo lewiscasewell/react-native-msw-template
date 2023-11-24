@@ -1,4 +1,4 @@
-import {server} from './src/tests/setupTestServer';
+import {server} from 'src/testUtils/setupTestServer';
 
 beforeEach(() => server.listen({onUnhandledRequest: 'error'}));
 afterEach(() => {
