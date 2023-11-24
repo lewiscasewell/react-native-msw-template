@@ -3,16 +3,20 @@ import {QueryClient, QueryClientProvider} from '@tanstack/react-query';
 import {render} from '@testing-library/react-native';
 import {renderHook} from '@testing-library/react-hooks';
 
-export function renderWithReactQuery(ui: React.ReactElement) {
-  const queryClient = new QueryClient({
+const createQueryClient = () => {
+  return new QueryClient({
     defaultOptions: {
       queries: {
         retry: false,
+        // set cache time to 0 to allow jest to exit cleanly after tests finish
+        gcTime: 0,
       },
     },
   });
+};
 
-  queryClient.clear();
+export function renderWithReactQuery(ui: React.ReactElement) {
+  const queryClient = createQueryClient();
 
   function Wrapper({children}: {children: React.ReactNode}) {
     return (
@@ -24,13 +28,7 @@ export function renderWithReactQuery(ui: React.ReactElement) {
 }
 
 export function renderHookWithReactQuery<HookType>(useHook: () => HookType) {
-  const queryClient = new QueryClient({
-    defaultOptions: {
-      queries: {
-        retry: false,
-      },
-    },
-  });
+  const queryClient = createQueryClient();
 
   function Wrapper({children}: {children: React.ReactNode}) {
     return (

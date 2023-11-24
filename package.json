@@ -7,7 +7,7 @@
     "ios": "react-native run-ios --port 9999",
     "lint": "eslint .",
     "start": "react-native start",
-    "test": "jest",
+    "test": "jest --detectOpenHandles",
     "test:cov": "jest --watchAll --detectOpenHandles --forceExit --coverage --verbose --no-cache"
   },
   "dependencies": {
