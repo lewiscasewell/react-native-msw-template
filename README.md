@@ -19,3 +19,7 @@ This application also has @tanstack/react-query to show how to use MSW with reac
 2. Run `yarn test:cov` to generate a coverage report, example below
 
 <img width="1008" alt="Screenshot 2023-11-24 at 16 58 47" src="https://github.com/lewiscasewell/react-native-msw-template/assets/64678409/abb8881d-f9a0-4eb1-81d9-862df20bd946">
+
+Example app demo
+https://github.com/lewiscasewell/react-native-msw-template/assets/64678409/46512e9b-7c4a-4503-b345-5c81ebfd7727
+
