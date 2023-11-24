@@ -7,14 +7,14 @@
 
 import React from 'react';
 import {QueryClient, QueryClientProvider} from '@tanstack/react-query';
-import Index from 'src';
+import MainStack from 'src/stacks/MainStack';
 
 const queryClient = new QueryClient();
 
 function App(): JSX.Element {
   return (
     <QueryClientProvider client={queryClient}>
-      <Index />
+      <MainStack />
     </QueryClientProvider>
   );
 }

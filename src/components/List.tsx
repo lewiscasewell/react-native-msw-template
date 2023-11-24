@@ -1,5 +1,5 @@
 import React from 'react';
-import {FlatList, StyleSheet, View} from 'react-native';
+import {ActivityIndicator, FlatList, StyleSheet, View} from 'react-native';
 import useCurrencyQuery from 'hooks/useCurrencyQuery';
 import Item from 'components/Item';
 import Text from 'components/Text';
@@ -13,7 +13,7 @@ const List = () => {
   const currencyQuery = useCurrencyQuery({sellSupported});
 
   if (currencyQuery.isFetching) {
-    return <Text>Loading...</Text>;
+    return <ActivityIndicator testID="loading" />;
   }
 
   if (currencyQuery.isError) {
@@ -65,6 +65,7 @@ const styles = StyleSheet.create({
   contentContainer: {
     paddingBottom: 100,
     paddingHorizontal: 10,
+    paddingTop: 10,
   },
   item: {
     padding: 10,
