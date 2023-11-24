@@ -7,7 +7,7 @@
       "components/*": ["src/components/*"],
       "tests/*": ["src/testUtils/*"],
       "hooks/*": ["src/hooks/*"],
-      "mocks/*": ["src/__mocks__/*"],
+      "mocks/*": ["__mocks__/*"],
     }
   }
 }

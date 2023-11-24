@@ -21,7 +21,7 @@ module.exports = {
           src: './src',
           components: './src/components',
           hooks: './src/hooks',
-          'test-utils': './src/tests-utils',
+          testUtils: './src/testsUtils',
           mocks: './__mocks__',
         },
       },
