@@ -52,4 +52,34 @@ describe('App', () => {
 
     () => expect(screen.getByText(errorMessage)).toBeTruthy();
   });
+
+  it('should change the sell supported filter when clicking on the filter buttons', async () => {
+    renderWithReactQuery(<Index />);
+
+    await waitForElementToBeRemoved(() => screen.getByText('Loading...'));
+
+    expect(screen.getByText('aave')).toBeDefined();
+    expect(screen.getAllByTestId('card')).toHaveLength(10);
+
+    act(() => {
+      fireEvent.press(screen.getByText('No'));
+    });
+
+    expect(screen.queryByText('aave')).toBeDefined();
+    expect(screen.queryByText('avax_cchain')).not.toBeTruthy();
+
+    act(() => {
+      fireEvent.press(screen.getByText('Yes'));
+    });
+
+    expect(screen.queryByText('aave')).not.toBeTruthy();
+    expect(screen.queryByText('avax_cchain')).toBeDefined();
+
+    act(() => {
+      fireEvent.press(screen.getByText('Both'));
+    });
+
+    expect(screen.getByText('aave')).toBeDefined();
+    expect(screen.getAllByTestId('card')).toHaveLength(10);
+  });
 });

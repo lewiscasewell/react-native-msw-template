@@ -14,6 +14,7 @@ describe('useCurrenciesQuery', () => {
     expect(result.current.data).toBeDefined();
     expect(result.current.data?.length).toBeGreaterThan(0);
   });
+
   it('returns a list of currencies that dont support sell', async () => {
     const {result, waitFor} = renderHookWithReactQuery<UseCurrencyQuery>(() =>
       useCurrenciesQuery({sellSupported: false}),
@@ -23,6 +24,7 @@ describe('useCurrenciesQuery', () => {
     expect(result.current.data?.length).toBeGreaterThan(0);
     expect(result.current.data?.every(c => !c.isSellSupported)).toBeTruthy();
   });
+
   it('returns a list of currencies that support sell', async () => {
     const {result, waitFor} = renderHookWithReactQuery<UseCurrencyQuery>(() =>
       useCurrenciesQuery({sellSupported: true}),
