@@ -17,3 +17,5 @@ This application also has @tanstack/react-query to show how to use MSW with reac
 
 1. Run `yarn test`
 2. Run `yarn test:cov` to generate a coverage report
+
+<img width="1008" alt="Screenshot 2023-11-24 at 16 58 47" src="https://github.com/lewiscasewell/react-native-msw-template/assets/64678409/abb8881d-f9a0-4eb1-81d9-862df20bd946">
