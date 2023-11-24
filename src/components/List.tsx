@@ -25,19 +25,22 @@ const List = () => {
       ListHeaderComponent={() => (
         <View>
           <Text>Sell supported</Text>
-          <View style={{flexDirection: 'row'}}>
+          <View style={styles.container}>
             <Text
-              style={sellSupported === true && styles.active}
+              style={[styles.item, sellSupported === true && styles.active]}
               onPress={() => setSellSupported(true)}>
               Yes
             </Text>
             <Text
-              style={sellSupported === false && styles.active}
+              style={[styles.item, sellSupported === false && styles.active]}
               onPress={() => setSellSupported(false)}>
               No
             </Text>
             <Text
-              style={sellSupported === undefined && styles.active}
+              style={[
+                styles.item,
+                sellSupported === undefined && styles.active,
+              ]}
               onPress={() => setSellSupported(undefined)}>
               Both
             </Text>
@@ -46,14 +49,27 @@ const List = () => {
       )}
       data={currencyQuery.data}
       keyExtractor={item => item.id}
+      contentContainerStyle={styles.contentContainer}
       renderItem={({item}) => <Item item={item} />}
     />
   );
 };
 
 const styles = StyleSheet.create({
+  container: {
+    flexDirection: 'row',
+    gap: 10,
+    marginBottom: 10,
+  },
+  contentContainer: {
+    paddingBottom: 100,
+    paddingHorizontal: 10,
+  },
+  item: {
+    padding: 10,
+  },
   active: {
-    backgroundColor: 'red',
+    backgroundColor: 'lightgrey',
   },
 });
 

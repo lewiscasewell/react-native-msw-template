@@ -8,7 +8,7 @@
     "lint": "eslint .",
     "start": "react-native start",
     "test": "jest",
-    "test:c": "jest --watchAll --detectOpenHandles --forceExit --coverage --verbose --no-cache"
+    "test:cov": "jest --watchAll --detectOpenHandles --forceExit --coverage --verbose --no-cache"
   },
   "dependencies": {
     "@tanstack/react-query": "^5.8.1",
