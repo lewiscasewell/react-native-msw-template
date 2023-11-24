@@ -1,6 +1,6 @@
 import 'react-native';
 import React from 'react';
-import {server} from '../src/tests/setupTestServer';
+import {server} from 'src/testUtils/setupTestServer';
 import {it, describe, expect} from '@jest/globals';
 import {
   act,
@@ -8,27 +8,28 @@ import {
   screen,
   waitForElementToBeRemoved,
 } from '@testing-library/react-native';
-import Index from '../src';
-import {renderWithReactQuery} from '../src/tests/render';
-import {API_URL} from '../src/Constants';
+import {renderWithReactQuery} from 'src/testUtils/render';
+import {API_URL} from 'src/Constants';
 import {HttpResponse, http} from 'msw';
-import {errorMessage} from '../src/components/List';
+import {errorMessage} from 'components/List';
+import MainStack from 'src/stacks/MainStack';
 
 describe('App', () => {
-  it('renders correctly', async () => {
-    renderWithReactQuery(<Index />);
+  it('renders correctly', () => {
+    renderWithReactQuery(<MainStack />);
 
-    const title = screen.getByText('Currencies');
-
-    await waitForElementToBeRemoved(() => screen.getByText('Loading...'));
+    // with the HeaderTitle component, we can use either the testID or the text
+    const title = screen.getByTestId('header-title');
+    const currenciesTitle = screen.getByText('Currencies');
 
     expect(title).toBeDefined();
+    expect(currenciesTitle).toBeDefined();
   });
 
   it('renders a list of currencies', async () => {
-    renderWithReactQuery(<Index />);
+    renderWithReactQuery(<MainStack />);
 
-    await waitForElementToBeRemoved(() => screen.getByText('Loading...'));
+    await waitForElementToBeRemoved(() => screen.getByTestId('loading'));
     expect(screen.getByText('aave')).toBeDefined();
     expect(screen.getAllByTestId('card')).toHaveLength(10);
     act(() => {
@@ -46,17 +47,17 @@ describe('App', () => {
       }),
     );
 
-    renderWithReactQuery(<Index />);
+    renderWithReactQuery(<MainStack />);
 
-    await waitForElementToBeRemoved(() => screen.getByText('Loading...'));
+    await waitForElementToBeRemoved(() => screen.getByTestId('loading'));
 
     () => expect(screen.getByText(errorMessage)).toBeTruthy();
   });
 
   it('should change the sell supported filter when clicking on the filter buttons', async () => {
-    renderWithReactQuery(<Index />);
+    renderWithReactQuery(<MainStack />);
 
-    await waitForElementToBeRemoved(() => screen.getByText('Loading...'));
+    await waitForElementToBeRemoved(() => screen.getByTestId('loading'));
 
     expect(screen.getByText('aave')).toBeDefined();
     expect(screen.getAllByTestId('card')).toHaveLength(10);

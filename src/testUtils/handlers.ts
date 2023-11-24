@@ -1,6 +1,6 @@
 import {HttpResponse, http} from 'msw';
-import {API_URL} from '../Constants';
-import currencies from '../../__mocks__/currencies.json';
+import {API_URL} from 'src/Constants';
+import currencies from 'mocks/currencies.json';
 
 const handlers = [
   http.get(API_URL, () => {

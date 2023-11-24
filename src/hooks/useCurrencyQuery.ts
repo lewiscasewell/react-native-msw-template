@@ -1,5 +1,5 @@
 import {useQuery} from '@tanstack/react-query';
-import {API_URL} from '../Constants';
+import {API_URL} from 'src/Constants';
 
 export interface Currency {
   decimals: number | null;
