@@ -2,27 +2,13 @@ import React from 'react';
 import {NavigationContainer} from '@react-navigation/native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import Index from 'src';
-import Text from 'components/Text';
-import {StyleSheet} from 'react-native';
+import HeaderTitle from 'src/components/HeaderTitle';
 
-const Stack = createNativeStackNavigator();
+export type MainStackParamList = {
+  Currencies: undefined;
+};
 
-const HeaderTitle = (props: {
-  children: string;
-  tintColor?: string | undefined;
-}) => (
-  <Text
-    testID="header-title"
-    style={[headerTitleStyles.headerTitle, {color: props.tintColor}]}>
-    {props.children}
-  </Text>
-);
-
-const headerTitleStyles = StyleSheet.create({
-  headerTitle: {
-    fontWeight: 'bold',
-  },
-});
+const Stack = createNativeStackNavigator<MainStackParamList>();
 
 const MainStack = () => {
   return (

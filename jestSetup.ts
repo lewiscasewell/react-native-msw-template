@@ -16,6 +16,15 @@ jest.mock('react-native-reanimated', () => {
 // Silence the warning: Animated: `useNativeDriver` is not supported because the native animated module is missing
 jest.mock('react-native/Libraries/Animated/NativeAnimatedHelper');
 
+// example of mocking another library, that needs gesture-handler and reanimated
+jest.mock('@gorhom/bottom-sheet', () => {
+  const react = require('react-native');
+
+  return {
+    BottomSheetModal: react.View,
+  };
+});
+
 beforeEach(() => server.listen({onUnhandledRequest: 'error'}));
 afterEach(() => {
   jest.clearAllMocks();
